@@ -1,0 +1,126 @@
+.detail-page {
+  display: grid;
+  gap: var(--fa-space-5);
+}
+
+.detail-header,
+.detail-header__meta,
+.detail-header__actions,
+.timeline__header {
+  display: flex;
+  align-items: center;
+  gap: var(--fa-space-3);
+}
+
+.detail-header {
+  justify-content: space-between;
+}
+
+.detail-header__eyebrow,
+.timeline__content p,
+.timeline__content span,
+.field-grid label {
+  margin: 0;
+  color: var(--fa-text-secondary);
+}
+
+.detail-header h2,
+.panel__section h3 {
+  margin: 4px 0 0;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(320px, 0.9fr);
+  gap: var(--fa-space-4);
+}
+
+.panel {
+  display: grid;
+  gap: var(--fa-space-5);
+  padding: var(--fa-space-5);
+  border: 1px solid var(--fa-border-default);
+  border-radius: var(--fa-radius-lg);
+  background: var(--fa-surface-card);
+}
+
+.panel__section {
+  display: grid;
+  gap: var(--fa-space-3);
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--fa-space-4);
+}
+
+.field-grid div {
+  display: grid;
+  gap: 4px;
+}
+
+.activity-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.timeline {
+  display: grid;
+  gap: var(--fa-space-4);
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr);
+  gap: var(--fa-space-3);
+}
+
+.timeline__rail {
+  position: relative;
+}
+
+.timeline__rail::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--fa-brand-500);
+}
+
+.timeline__rail::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 7px;
+  bottom: -18px;
+  width: 1px;
+  background: var(--fa-border-default);
+}
+
+.timeline__item:last-child .timeline__rail::after {
+  display: none;
+}
+
+.timeline__content {
+  display: grid;
+  gap: 6px;
+}
+
+@media (max-width: 1024px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+}

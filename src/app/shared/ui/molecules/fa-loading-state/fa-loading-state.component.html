@@ -1,0 +1,7 @@
+<div class="loading-state" [class]="'loading-state loading-state--' + variant()">
+  <fa-spinner [size]="variant() === 'inline' ? 'sm' : 'lg'"></fa-spinner>
+  <div>
+    <strong>{{ title() }}</strong>
+    <p>{{ description() }}</p>
+  </div>
+</div>

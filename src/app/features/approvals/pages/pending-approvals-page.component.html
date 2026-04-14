@@ -1,0 +1,36 @@
+<section class="approvals-page">
+  <header class="page-header">
+    <div>
+      <p class="page-header__eyebrow">Approvals</p>
+      <h2>Pending Approvals</h2>
+    </div>
+    <p-button label="View SLA Rules" severity="secondary"></p-button>
+  </header>
+
+  <p-table [value]="rows" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Request</th>
+        <th>Requester</th>
+        <th>Current Step</th>
+        <th>Waiting</th>
+        <th>Status</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-row>
+      <tr [routerLink]="['/requests', row.id]">
+        <td>
+          <div class="request-cell">
+            <strong>{{ row.title }}</strong>
+            <span>{{ row.id }}</span>
+          </div>
+        </td>
+        <td>{{ row.requester }}</td>
+        <td>{{ row.step }}</td>
+        <td>{{ row.age }}</td>
+        <td><fa-status-chip [status]="row.status"></fa-status-chip></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</section>

@@ -1,0 +1,30 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  background: rgba(15, 23, 42, 0.14);
+  backdrop-filter: blur(2px);
+}
+
+.overlay__panel {
+  display: flex;
+  align-items: center;
+  gap: var(--fa-space-4);
+  min-width: 280px;
+  padding: var(--fa-space-5);
+  border: 1px solid var(--fa-border-default);
+  border-radius: var(--fa-radius-lg);
+  background: var(--fa-surface-card);
+  box-shadow: var(--fa-shadow-md);
+}
+
+.overlay__panel strong,
+.overlay__panel p {
+  margin: 0;
+}
+
+.overlay__panel p {
+  color: var(--fa-text-secondary);
+}

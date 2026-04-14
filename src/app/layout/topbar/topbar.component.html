@@ -1,0 +1,28 @@
+<header class="topbar">
+  <div>
+    <p class="topbar__eyebrow">{{ organizationContext.activeWorkspace() }}</p>
+    <h1 class="topbar__title">FlowApprove</h1>
+  </div>
+
+  <label class="topbar__search">
+    <i class="pi pi-search"></i>
+    <input pInputText [(ngModel)]="search" placeholder="Search requests, workflows, approvals" />
+  </label>
+
+  <div class="topbar__actions">
+    <p-tag severity="info" [value]="organizationContext.activePlan()"></p-tag>
+    <p-button
+      routerLink="/requests/create"
+      label="Create Request"
+      icon="pi pi-plus"
+      size="small"
+    ></p-button>
+    <a class="topbar__profile" routerLink="/profile">
+      <p-avatar [label]="session.initials()" shape="circle"></p-avatar>
+      <div>
+        <p class="topbar__name">{{ session.userName() }}</p>
+        <p class="topbar__meta">{{ session.organizationName() }}</p>
+      </div>
+    </a>
+  </div>
+</header>

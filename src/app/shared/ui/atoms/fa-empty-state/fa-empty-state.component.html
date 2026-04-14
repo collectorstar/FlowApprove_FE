@@ -1,0 +1,12 @@
+<section class="empty-state">
+  <div class="empty-state__icon">
+    <i [class]="icon()"></i>
+  </div>
+  <div class="empty-state__content">
+    <h3>{{ title() }}</h3>
+    <p>{{ description() }}</p>
+  </div>
+  @if (actionLabel(); as label) {
+    <p-button [label]="label" severity="secondary"></p-button>
+  }
+</section>

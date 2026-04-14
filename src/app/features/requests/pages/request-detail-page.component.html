@@ -1,0 +1,77 @@
+<section class="detail-page">
+  @if (isPageLoading()) {
+    <fa-loading-state
+      variant="page"
+      title="Loading request detail"
+      description="Preparing request metadata, approval timeline, and activity."
+    ></fa-loading-state>
+  } @else {
+    <header class="detail-header">
+      <div>
+        <p class="detail-header__eyebrow">REQ-24018</p>
+        <h2>Marketing Budget 2026</h2>
+        <div class="detail-header__meta">
+          <fa-status-chip status="pending"></fa-status-chip>
+          <span>Department Budget Approval</span>
+          <span>Submitted by Jamie Fox</span>
+        </div>
+      </div>
+      <div class="detail-header__actions">
+        <p-button label="Edit Draft" severity="secondary"></p-button>
+        <p-button label="Open Approval" icon="pi pi-arrow-right"></p-button>
+      </div>
+    </header>
+
+    <div class="detail-layout">
+      <section class="panel panel--main">
+        <div class="panel__section">
+          <h3>Request information</h3>
+          <div class="field-grid">
+            <div><label>Department</label><strong>Marketing</strong></div>
+            <div><label>Budget period</label><strong>FY 2026</strong></div>
+            <div><label>Amount</label><strong>$180,000</strong></div>
+            <div><label>Priority</label><strong>Standard</strong></div>
+          </div>
+        </div>
+
+        <div class="panel__section">
+          <h3>Business rationale</h3>
+          <p>
+            Budget allocation for regional campaign expansion, event sponsorship, and digital demand
+            generation for the next fiscal cycle.
+          </p>
+        </div>
+
+        <div class="panel__section">
+          <h3>Activity</h3>
+          <ul class="activity-list">
+            <li>Finance requested clarification on quarterly allocation split</li>
+            <li>Department Head approved with note on spend governance</li>
+            <li>Requester attached forecast workbook and campaign summary</li>
+          </ul>
+        </div>
+      </section>
+
+      <aside class="panel panel--side">
+        <div class="panel__section">
+          <h3>Approval timeline</h3>
+          <div class="timeline">
+            @for (step of timeline; track step.title) {
+              <div class="timeline__item">
+                <div class="timeline__rail"></div>
+                <div class="timeline__content">
+                  <div class="timeline__header">
+                    <strong>{{ step.title }}</strong>
+                    <fa-status-chip [status]="step.status"></fa-status-chip>
+                  </div>
+                  <p>{{ step.actor }}</p>
+                  <span>{{ step.time }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </aside>
+    </div>
+  }
+</section>

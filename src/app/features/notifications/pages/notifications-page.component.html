@@ -1,0 +1,18 @@
+<section class="notifications-page">
+  <header>
+    <p class="eyebrow">Inbox</p>
+    <h2>Notifications</h2>
+  </header>
+
+  <div class="list">
+    @for (item of items; track item.title) {
+      <article class="notification">
+        <div>
+          <strong>{{ item.title }}</strong>
+          <p>{{ item.detail }}</p>
+        </div>
+        <fa-status-chip [status]="item.status"></fa-status-chip>
+      </article>
+    }
+  </div>
+</section>

@@ -1,0 +1,28 @@
+<section class="workflow-page">
+  <header class="page-header">
+    <div>
+      <p class="page-header__eyebrow">Admin</p>
+      <h2>Workflow Configuration</h2>
+    </div>
+    <div class="page-header__actions">
+      <fa-status-chip status="approved"></fa-status-chip>
+      <p-button label="Publish Changes"></p-button>
+    </div>
+  </header>
+
+  <div class="workflow-layout">
+    <article class="panel">
+      <h3>Department Budget Approval</h3>
+      <p>Reusable approval path for budget requests with role-based routing and finance escalation.</p>
+    </article>
+
+    <article class="panel">
+      <h3>Current steps</h3>
+      <ol>
+        @for (step of steps; track step) {
+          <li>{{ step }}</li>
+        }
+      </ol>
+    </article>
+  </div>
+</section>

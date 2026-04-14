@@ -1,0 +1,8 @@
+<section class="profile-page">
+  <p-avatar [label]="session.initials()" size="xlarge" shape="circle"></p-avatar>
+  <div>
+    <p class="eyebrow">Profile</p>
+    <h2>{{ session.userName() }}</h2>
+    <p>{{ session.organizationName() }}</p>
+  </div>
+</section>

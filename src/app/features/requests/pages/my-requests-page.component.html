@@ -1,0 +1,87 @@
+<section class="requests-page">
+  <header class="page-header">
+    <div>
+      <p class="page-header__eyebrow">Requests</p>
+      <h2>My Requests</h2>
+    </div>
+    <p-button routerLink="/requests/create" label="New Request" icon="pi pi-plus"></p-button>
+  </header>
+
+  <div class="toolbar">
+    <label class="toolbar__search">
+      <i class="pi pi-search"></i>
+      <input
+        pInputText
+        [(ngModel)]="search"
+        (ngModelChange)="store.setSearch($event)"
+        placeholder="Search request title or ID"
+      />
+    </label>
+    <div class="toolbar__meta">
+      <span>3 active items</span>
+      <span>Sorted by last updated</span>
+    </div>
+  </div>
+
+  @if (store.isLoading()) {
+    <section class="table-skeleton">
+      <div class="table-skeleton__row table-skeleton__row--header">
+        @for (col of [1, 2, 3, 4, 5, 6]; track col) {
+          <fa-skeleton-block height="12px" width="70%"></fa-skeleton-block>
+        }
+      </div>
+
+      @for (row of [1, 2, 3, 4]; track row) {
+        <div class="table-skeleton__row">
+          <fa-skeleton-block height="14px" width="84%"></fa-skeleton-block>
+          <fa-skeleton-block height="14px" width="78%"></fa-skeleton-block>
+          <fa-skeleton-block height="28px" width="88px" borderRadius="999px"></fa-skeleton-block>
+          <fa-skeleton-block height="14px" width="72%"></fa-skeleton-block>
+          <fa-skeleton-block height="14px" width="66%"></fa-skeleton-block>
+          <fa-skeleton-block height="14px" width="76%"></fa-skeleton-block>
+        </div>
+      }
+    </section>
+  } @else if (store.isEmpty()) {
+    <fa-empty-state
+      title="No requests yet"
+      description="Create your first request to start using FlowApprove workflows."
+      actionLabel="Create Request"
+    ></fa-empty-state>
+  } @else if (store.hasNoResults()) {
+    <fa-empty-state
+      title="No matching requests"
+      description="Try a different keyword or clear the current filters."
+      icon="pi pi-search"
+    ></fa-empty-state>
+  } @else {
+    <p-table [value]="store.rows()" responsiveLayout="scroll">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Request</th>
+          <th>Workflow</th>
+          <th>Status</th>
+          <th>Current Step</th>
+          <th>Requester</th>
+          <th>Updated</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-request>
+        <tr [routerLink]="['/requests', request.id]">
+          <td>
+            <div class="request-cell">
+              <strong>{{ request.title }}</strong>
+              <span>{{ request.id }}</span>
+            </div>
+          </td>
+          <td>{{ request.workflow }}</td>
+          <td><fa-status-chip [status]="request.status"></fa-status-chip></td>
+          <td>{{ request.currentStep }}</td>
+          <td>{{ request.requester }}</td>
+          <td>{{ request.updatedAt }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  }
+</section>

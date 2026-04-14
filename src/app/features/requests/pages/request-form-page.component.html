@@ -1,0 +1,50 @@
+<section class="form-page">
+  <header class="form-page__header">
+    <div>
+      <p class="form-page__eyebrow">Request Workflow</p>
+      <h2>{{ pageTitle }}</h2>
+    </div>
+    <div class="form-page__actions">
+      <p-button label="Save Draft" severity="secondary"></p-button>
+      <p-button
+        [label]="mode === 'resubmit' ? 'Resubmit' : 'Submit Request'"
+        [loading]="isSubmitting()"
+        (click)="submit()"
+      ></p-button>
+    </div>
+  </header>
+
+  <form class="form-card" [formGroup]="form">
+    <div class="form-grid">
+      <label class="field">
+        <span>Request Title</span>
+        <input pInputText formControlName="title" />
+      </label>
+
+      <label class="field">
+        <span>Request Type</span>
+        <p-select
+          [options]="requestTypes"
+          optionLabel="label"
+          optionValue="value"
+          formControlName="requestType"
+        ></p-select>
+      </label>
+
+      <label class="field">
+        <span>Department</span>
+        <input pInputText formControlName="department" />
+      </label>
+
+      <label class="field">
+        <span>Amount</span>
+        <input pInputText formControlName="amount" />
+      </label>
+    </div>
+
+    <label class="field">
+      <span>Business Justification</span>
+      <textarea pTextarea rows="6" formControlName="businessJustification"></textarea>
+    </label>
+  </form>
+</section>

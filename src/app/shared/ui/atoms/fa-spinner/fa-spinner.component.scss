@@ -1,0 +1,20 @@
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep .spinner--sm .p-progressspinner {
+  width: 18px;
+  height: 18px;
+}
+
+:host ::ng-deep .spinner--md .p-progressspinner {
+  width: 24px;
+  height: 24px;
+}
+
+:host ::ng-deep .spinner--lg .p-progressspinner {
+  width: 36px;
+  height: 36px;
+}

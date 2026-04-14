@@ -1,0 +1,28 @@
+.loading-state {
+  display: flex;
+  align-items: center;
+  gap: var(--fa-space-4);
+  padding: var(--fa-space-5);
+  border: 1px dashed var(--fa-border-default);
+  border-radius: var(--fa-radius-md);
+  background: var(--fa-surface-card);
+}
+
+.loading-state p,
+.loading-state strong {
+  margin: 0;
+}
+
+.loading-state p {
+  color: var(--fa-text-secondary);
+}
+
+.loading-state--page {
+  min-height: 320px;
+  justify-content: center;
+}
+
+.loading-state--inline {
+  padding: var(--fa-space-3);
+  border-style: solid;
+}

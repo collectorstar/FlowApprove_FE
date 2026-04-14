@@ -1,0 +1,116 @@
+<section class="dashboard-page">
+  <header class="page-header">
+    <div>
+      <p class="page-header__eyebrow">Overview</p>
+      <h2>Operations dashboard</h2>
+    </div>
+    <p-button label="Review approvals" icon="pi pi-arrow-right" severity="contrast"></p-button>
+  </header>
+
+  @if (store.isLoading()) {
+    <div class="bento">
+      <article class="card card--hero">
+        <fa-skeleton-block height="18px" width="96px"></fa-skeleton-block>
+        <fa-skeleton-block height="34px" width="60%"></fa-skeleton-block>
+        <fa-skeleton-block height="14px" width="90%"></fa-skeleton-block>
+        <div class="metrics">
+          @for (metric of [1, 2, 3]; track metric) {
+            <div class="metric">
+              <fa-skeleton-block height="12px" width="72px"></fa-skeleton-block>
+              <fa-skeleton-block height="24px" width="48px"></fa-skeleton-block>
+              <fa-skeleton-block height="12px" width="84px"></fa-skeleton-block>
+            </div>
+          }
+        </div>
+      </article>
+
+      <article class="card">
+        <fa-skeleton-block height="18px" width="140px"></fa-skeleton-block>
+        <div class="stack">
+          @for (item of [1, 2, 3]; track item) {
+            <div class="stack__item">
+              <div class="stack__content">
+                <fa-skeleton-block height="14px" width="140px"></fa-skeleton-block>
+                <fa-skeleton-block height="12px" width="80px"></fa-skeleton-block>
+              </div>
+              <fa-skeleton-block height="28px" width="88px" borderRadius="999px"></fa-skeleton-block>
+            </div>
+          }
+        </div>
+      </article>
+
+      <article class="card">
+        <fa-skeleton-block height="18px" width="120px"></fa-skeleton-block>
+        <div class="stack">
+          @for (item of [1, 2, 3]; track item) {
+            <fa-skeleton-block height="14px" width="100%"></fa-skeleton-block>
+          }
+        </div>
+      </article>
+
+      <article class="card">
+        <fa-skeleton-block height="18px" width="110px"></fa-skeleton-block>
+        <fa-skeleton-block height="16px" width="140px"></fa-skeleton-block>
+        <fa-skeleton-block height="14px" width="100%"></fa-skeleton-block>
+      </article>
+    </div>
+  } @else if (store.isEmpty()) {
+    <fa-empty-state
+      title="No dashboard data yet"
+      description="Metrics and activity will appear here after requests and workflow activity are created."
+      actionLabel="Create Request"
+    ></fa-empty-state>
+  } @else {
+    <div class="bento">
+      <article class="card card--hero">
+        <p class="card__label">Throughput</p>
+        <h3>Requests are moving faster this week</h3>
+        <p class="card__copy">
+          Approval queues are stable across Finance, Procurement, and Operations with only a small
+          spike in returned submissions.
+        </p>
+        <div class="metrics">
+          @for (metric of store.metrics(); track metric.label) {
+            <div class="metric">
+              <p class="metric__label">{{ metric.label }}</p>
+              <strong>{{ metric.value }}</strong>
+              <span>{{ metric.delta }}</span>
+            </div>
+          }
+        </div>
+      </article>
+
+      <article class="card">
+        <p class="card__label">Pending Approvals</p>
+        <div class="stack">
+          @for (approval of store.pendingApprovals(); track approval.title) {
+            <div class="stack__item">
+              <div>
+                <strong>{{ approval.title }}</strong>
+                <p>{{ approval.owner }}</p>
+              </div>
+              <fa-status-chip [status]="approval.status"></fa-status-chip>
+            </div>
+          }
+        </div>
+      </article>
+
+      <article class="card">
+        <p class="card__label">Recent activity</p>
+        <ul class="timeline">
+          @for (item of store.activity(); track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </article>
+
+      <article class="card">
+        <p class="card__label">Notifications</p>
+        <div class="notification">
+          <strong>{{ store.unreadNotifications() }} unread updates</strong>
+          <p>Keep the notification drawer for quick triage and deep-link into the affected request.</p>
+        </div>
+      </article>
+    </div>
+  }
+</section>

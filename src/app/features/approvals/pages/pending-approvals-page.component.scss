@@ -1,0 +1,29 @@
+.approvals-page {
+  display: grid;
+  gap: var(--fa-space-5);
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--fa-space-4);
+}
+
+.page-header__eyebrow,
+.request-cell span {
+  margin: 0;
+  color: var(--fa-text-secondary);
+}
+
+.page-header h2 {
+  margin: 4px 0 0;
+}
+
+.request-cell {
+  display: grid;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr {
+  cursor: pointer;
+}

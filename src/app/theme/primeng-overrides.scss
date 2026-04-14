@@ -1,0 +1,50 @@
+.p-component {
+  font-family: var(--fa-font-family);
+}
+
+.p-button {
+  border-radius: var(--fa-radius-sm);
+  box-shadow: none;
+  font-weight: 600;
+}
+
+.p-inputtext,
+.p-select,
+.p-multiselect,
+.p-textarea {
+  border-radius: var(--fa-radius-sm);
+  border-color: var(--fa-border-default);
+  box-shadow: none;
+}
+
+.p-inputtext:enabled:focus,
+.p-select.p-focus,
+.p-multiselect.p-focus,
+.p-textarea:enabled:focus {
+  border-color: var(--fa-brand-400);
+  box-shadow: var(--fa-focus-ring);
+}
+
+.p-tag {
+  border-radius: var(--fa-radius-pill);
+  font-weight: 600;
+}
+
+.p-datatable {
+  border: 1px solid var(--fa-border-default);
+  border-radius: var(--fa-radius-md);
+  overflow: hidden;
+}
+
+.p-datatable .p-datatable-header,
+.p-datatable .p-datatable-thead > tr > th {
+  background: var(--fa-surface-card);
+}
+
+.p-datatable .p-datatable-tbody > tr {
+  transition: background-color var(--fa-motion-fast) ease;
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
+  background: var(--fa-surface-hover);
+}

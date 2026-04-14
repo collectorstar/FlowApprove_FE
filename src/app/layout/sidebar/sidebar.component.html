@@ -1,0 +1,23 @@
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand__mark">FA</div>
+    <div>
+      <p class="brand__title">FlowApprove</p>
+      <p class="brand__subtitle">Workflow Platform</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    @for (item of items(); track item.route) {
+      <a
+        class="nav__item"
+        [routerLink]="item.route"
+        routerLinkActive="nav__item--active"
+        [routerLinkActiveOptions]="{ exact: item.route === '/dashboard' }"
+      >
+        <i [class]="item.icon"></i>
+        <span>{{ item.label }}</span>
+      </a>
+    }
+  </nav>
+</aside>

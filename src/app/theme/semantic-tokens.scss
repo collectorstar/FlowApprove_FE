@@ -1,0 +1,33 @@
+:root {
+  --fa-surface-page: var(--fa-neutral-50);
+  --fa-surface-card: var(--fa-neutral-0);
+  --fa-surface-muted: var(--fa-neutral-25);
+  --fa-surface-hover: var(--fa-neutral-100);
+  --fa-surface-sidebar: #111827;
+  --fa-surface-sidebar-hover: #1f2937;
+
+  --fa-border-default: var(--fa-neutral-200);
+  --fa-border-strong: var(--fa-neutral-300);
+
+  --fa-text-primary: var(--fa-neutral-900);
+  --fa-text-secondary: var(--fa-neutral-600);
+  --fa-text-tertiary: var(--fa-neutral-500);
+  --fa-text-on-dark: #e5e7eb;
+
+  --fa-focus-ring: 0 0 0 3px rgba(126, 158, 255, 0.35);
+
+  --fa-status-draft-bg: #f2f4f7;
+  --fa-status-draft-text: #475467;
+  --fa-status-submitted-bg: #eff8ff;
+  --fa-status-submitted-text: #1d4ed8;
+  --fa-status-pending-bg: #fffaeb;
+  --fa-status-pending-text: #b45309;
+  --fa-status-approved-bg: #edfdf3;
+  --fa-status-approved-text: #166534;
+  --fa-status-rejected-bg: #fef3f2;
+  --fa-status-rejected-text: #b42318;
+  --fa-status-sent-back-bg: #fff1eb;
+  --fa-status-sent-back-text: #c2410c;
+  --fa-status-cancelled-bg: #f4f4f5;
+  --fa-status-cancelled-text: #52525b;
+}

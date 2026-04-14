@@ -1,0 +1,45 @@
+.workflow-page {
+  display: grid;
+  gap: var(--fa-space-5);
+}
+
+.page-header,
+.page-header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--fa-space-3);
+}
+
+.page-header__eyebrow,
+.panel p {
+  margin: 0;
+  color: var(--fa-text-secondary);
+}
+
+.page-header h2,
+.panel h3 {
+  margin: 4px 0 0;
+}
+
+.workflow-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--fa-space-4);
+}
+
+.panel {
+  padding: var(--fa-space-5);
+  border: 1px solid var(--fa-border-default);
+  border-radius: var(--fa-radius-lg);
+  background: var(--fa-surface-card);
+}
+
+@media (max-width: 960px) {
+  .workflow-layout,
+  .page-header {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,20 @@
+.organization-page {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--fa-space-5);
+  padding: var(--fa-space-6);
+  border: 1px solid var(--fa-border-default);
+  border-radius: var(--fa-radius-lg);
+  background: var(--fa-surface-card);
+}
+
+.eyebrow,
+.organization-page p {
+  margin: 0;
+  color: var(--fa-text-secondary);
+}
+
+.organization-page h2 {
+  margin: 4px 0;
+}
