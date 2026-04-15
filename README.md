@@ -1,59 +1,145 @@
-# FlowApproveWeb
+# FlowApprove FE
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+Frontend for the FlowApprove project, built with Angular 21.
 
-## Development server
+## Table of Contents
 
-To start a local development server, run:
+1. [Overview](#overview)
+2. [Current Status](#current-status)
+3. [Tech Stack](#tech-stack)
+4. [Project Structure](#project-structure)
+5. [Environment Requirements](#environment-requirements)
+6. [Installation](#installation)
+7. [Running Locally](#running-locally)
+8. [Build](#build)
+9. [Testing](#testing)
+10. [Backend Integration](#backend-integration)
+11. [Known Limitations](#known-limitations)
+12. [Next Steps](#next-steps)
 
-```bash
-ng serve
+## Overview
+
+This repository contains the frontend application for FlowApprove.
+
+At the moment, the frontend is still in the foundation stage. The main goal is to establish the application shell, feature routing, shared UI patterns, and the API integration layer that will be used once backend contracts are stable.
+
+## Current Status
+
+- The main application layout is already in place.
+- Feature-based routing has already been set up.
+- Shared UI building blocks and theme files already exist.
+- The `api-client` folder has been prepared for future generated or handwritten API clients.
+- Business features are not implemented yet.
+- No finalized entity or domain model exists on the frontend yet.
+- Some screens still rely on mock data for UI prototyping.
+- Test coverage is still minimal.
+
+## Tech Stack
+
+- Angular 21
+- TypeScript
+- SCSS
+- PrimeNG
+- RxJS
+- Vitest through the Angular builder
+
+## Project Structure
+
+```text
+src/app
+|- api-client/     API client layer reserved for backend integration
+|- core/           Shared infrastructure such as interceptors and constants
+|- features/       Feature-specific screens and flows
+|- layout/         App shell, sidebar, topbar, loading overlay
+|- shared/         Reusable models, types, and UI components
+|- state/          App-level stores
+`- theme/          Design tokens and global styles
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Environment Requirements
 
-## Code scaffolding
+- Node.js 20+
+- npm 9+
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Quick check:
 
 ```bash
-ng generate --help
+node -v
+npm -v
 ```
 
-## Building
+## Installation
 
-To build the project run:
+Install dependencies:
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Running Locally
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Start the development server:
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
+Default local URL:
 
-For end-to-end (e2e) testing, run:
+```text
+http://localhost:4200
+```
+
+## Build
+
+Create a production build:
 
 ```bash
-ng e2e
+npm run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Build output directory:
 
-## Additional Resources
+```text
+dist/flow-approve-web
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Testing
+
+Run tests:
+
+```bash
+npm test
+```
+
+Run tests once without watch mode:
+
+```bash
+npm test -- --watch=false
+```
+
+## Backend Integration
+
+Current base URL configuration:
+
+```ts
+baseUrl: '/api'
+```
+
+This means the frontend is prepared to call the backend through the same origin or through a reverse proxy. If the frontend and backend are run separately in local development, a proxy or environment-specific configuration will need to be added later.
+
+## Known Limitations
+
+- `api-client/generated` is still a placeholder and has not been generated from OpenAPI yet.
+- Several feature services still return mock data.
+- There is no finalized feature-to-API integration flow yet.
+- Test coverage only covers basic application bootstrapping.
+- The current screens should be treated as UI scaffolding, not as production-ready business functionality.
+
+## Next Steps
+
+- Define real frontend models based on actual backend contracts.
+- Replace mock services with real API integrations.
+- Generate or implement the API client layer.
+- Expand feature-level tests.
+- Add environment-specific runtime configuration when FE and BE start running together.
